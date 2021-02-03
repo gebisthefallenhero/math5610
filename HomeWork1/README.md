@@ -1,4 +1,4 @@
-Below are the codes for this assignemt.
+Below are the codes for this assignmet.
 
 * [dotProduct](dotProd.jl)
 * [p norms](PNorms.jl)
