@@ -1,0 +1,31 @@
+""" Returns an array form of a lower triangular matrix."""
+function makeArray(mat)
+    toReturn = []
+    numRows, numCols = size(A)
+    for i=1:numRows
+        for j=1:numRows
+            if i ≥ j
+                push!(toReturn, A[i,j])
+            end
+        end
+    end
+    return toReturn
+end
+
+function forwardSolveA(A, b)
+    lenA = length(A)
+    iCtr = 1
+    xVec = Array{Float64}(undef, length(b))
+    xVec[1] = A[iCtr] / b[1]
+    iCtr += 1
+    for i=2:length(b)
+        sum = b[i]
+        for j = 1:i - 1
+            sum -= A[iCtr] * xVec[j]
+            iCtr += 1
+        end
+        xVec[i] = sum / A[iCtr]
+        iCtr += 1
+    end
+    return xVec
+end
