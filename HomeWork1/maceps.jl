@@ -6,6 +6,7 @@ function singlePoint()
         seps = seps / 2
         appOne = one + seps
         if (abs(appOne == 1))
+            println("The smallest single point number is $(1/(2^ipow))")
             return ipow
         end
     end
@@ -20,6 +21,7 @@ function doublePoint()
         seps = seps / 2
         appOne = one + seps
         if (abs(appOne == 1))
+            println("The smallest double point number is $(1/(2^ipow))")
             return ipow
         end
     end

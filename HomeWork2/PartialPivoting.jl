@@ -1,4 +1,5 @@
 
+
 function partPiv(A, b)
     rowLen = size(A)[1]
     map = [i for i = 1:rowLen]
@@ -8,7 +9,6 @@ function partPiv(A, b)
         for i = k+1:rowLen
             factor = A[map[i], k] / A[map[k], k]
             for j = k:rowLen
-
                 A[map[i], j] = A[map[i], j] - factor * A[map[k], j]
             end # for
             b[map[i]] = b[map[i]] - factor * b[map[k]]
@@ -17,12 +17,9 @@ function partPiv(A, b)
     xVec = [0.0 for i = 1:rowLen]
     for row = rowLen:-1:1 #back substitution
         sum = b[map[row]]
-        println("The starting sum $(sum) for row $row")
         for column = row + 1:rowLen
             sum = sum - A[map[row], column] * xVec[column]
         end
-        println("The ending sum $(sum) for row $row")
-        println(" $(A[map[row], row])")
         xVec[row] = sum / A[map[row], row]
     end # for
     return xVec
