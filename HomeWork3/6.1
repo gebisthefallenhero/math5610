@@ -1,0 +1,10 @@
+using Plots
+t = 0.0:0.1:1.0
+b = [.9,1.01,1.05,.97,.98,.95,.01,-.1,.02,-.1,0]
+scatter(t,b)
+savefig("6.1Figure.png")
+
+#6.2 Stuff
+t = 0:.01:1
+f(x) = .05*sin(1000*x) + .5cos(pi*x) -.4*sin(10*x)
+scatter(t,f)
