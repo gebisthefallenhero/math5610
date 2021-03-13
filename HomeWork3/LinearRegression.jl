@@ -12,15 +12,16 @@ function linReg(data)
     end
     println(A)
     println(r)
-    detA = 1 / (A[2,2] * A[1,1] - A[1,2]^2)
-    b = (A[2,2] * r[1] - A[1,2] * r[2]) * detA
-    a = (-A[1,2] * r[1] + A[1,1] * r[2]) * detA
+    detA = 1 / (A[2,2] * A[1,1] - A[2,1]^2)
+    a = (A[2,2] * r[1] - A[2,1] * r[2]) * detA
+    b = (-A[2,1] * r[1] + A[1,1] * r[2]) * detA
     return a,b
 end
 
 using Plots
 f(x) = 2x + 3
 xVals = 0:.01:10
+plot!(xVals,f)
 
 dataPoints = zeros(2,size(xVals)[1])
 count = 1
@@ -32,6 +33,6 @@ end
 
 a,b = linReg(dataPoints)
 
-f_1(x) = a*x + b 
+f_1(x) = a*x + b
 
 plot!(xVals,f_1)
