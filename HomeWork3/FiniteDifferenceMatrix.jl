@@ -50,3 +50,5 @@ function TriDiagBS(ad,as,y)
     end
     return x
 end
+
+A = MakeTriDiag(100)
