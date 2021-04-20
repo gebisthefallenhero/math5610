@@ -11,7 +11,6 @@ function GS(A,b,guess, tol; maxIter = 1000)
             backSum = 0.0
             for j = 1:i-1
                 backSum += A[i,j] * x_new[j]
-                println(backSum)
             end
             innerSum = 0.0
             for j = i + 1:n
